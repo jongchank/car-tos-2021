@@ -14,9 +14,9 @@ void *mythread(void *arg)
     char *letter = arg;
     int i;
 
-    pthread_mutex_lock(&lock);
+    printf("%s: begin\n", letter);
     for (i = 0; i < loop_cnt; i++) {
-        printf("%s: begin\n", letter);
+        pthread_mutex_lock(&lock);
         counter = counter + 1;
         pthread_mutex_unlock(&lock);
     }
